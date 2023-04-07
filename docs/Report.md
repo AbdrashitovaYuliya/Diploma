@@ -27,19 +27,19 @@
 
 
 ### Обзор Allure
-![Report1.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
+![Report1.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report1.png)
 
 ### Статус тестов
-![Report2.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
+![Report2.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report2.png)
 
 ### Продолжительность тестов
-![Report3.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
+![Report3.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report3.png)
 
 ### Сьюты
-![Report4.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
+![Report4.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report4.png)
 
 ### Тестируемый функционал
-![Report5.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
+![Report5.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report5.png)
 
 
 С подробными отчетами по каждому дефекту, сформированными при помощи Allure, можно ознакомиться [здесь.](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
