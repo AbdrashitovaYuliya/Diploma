@@ -26,23 +26,23 @@
 ## Отчет сгенерированный в фреймворке Allure
 
 
-### Обзор Allure
+## Обзор Allure
 ![Report1.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report1.png)
 
 
-### Статус тестов
+## Статус тестов
 ![Report2.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report2.png)
 
 
-### Продолжительность тестов
+## Продолжительность тестов
 ![Report3.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report3.png)
 
 
-### Сьюты
+## Сьюты
 ![Report4.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report4.png)
 
 
-### Тестируемый функционал
+## Тестируемый функционал
 ![Report5.png](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/allure-results/Report5.png)
 
 
