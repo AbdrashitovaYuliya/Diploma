@@ -26,25 +26,25 @@
 ## Отчет сгенерированный в фреймворке Allure
 
 
-###Обзор Allure
-![Report1.png](/home/yuliya/Downloads/Report1.png)
+### Обзор Allure
+![Report1.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
-###Статус тестов
-![Report2.png](/home/yuliya/Downloads/Report2.png)
+### Статус тестов
+![Report2.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
-###Продолжительность тестов
-![Report3.png](/home/yuliya/Downloads/Report3.png)
+### Продолжительность тестов
+![Report3.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
-###Сьюты
-![Report4.png](/home/yuliya/Downloads/Report4.png)
+### Сьюты
+![Report4.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
 ### Тестируемый функционал
-![Report5.png](/home/yuliya/Downloads/Report5.png)
+![Report5.png](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
 
 С подробными отчетами по каждому дефекту, сформированными при помощи Allure, можно ознакомиться [здесь.](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
-##Общие рекомендации
+## Общие рекомендации
 * Исправить орфографические ошибки;
 * Сложный поиск CSS Селекторов. Нужно создать уникальные для всей страницы (либо в конкретной её области) идентификаторы для элементов, атрибуты с префиксом data-, наподобие data-test-id.
 * Составить подробную документацию, в которой будут отражены все актуальные требования к работе и функционалу приложения, к его особенностям.
