@@ -42,7 +42,7 @@
 ![Report5.png](/home/yuliya/Downloads/Report5.png)
 
 
-С подробными отчетами по каждому дефекту, сформированными при помощи Allure, можно ознакомиться [здесь.]()
+С подробными отчетами по каждому дефекту, сформированными при помощи Allure, можно ознакомиться [здесь.](https://github.com/AbdrashitovaYuliya/Diploma/tree/master/docs/allure-results)
 
 ##Общие рекомендации
 * Исправить орфографические ошибки;
