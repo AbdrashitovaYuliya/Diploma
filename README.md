@@ -66,4 +66,5 @@
 ## Документация:
 1. [Задание](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/Task.md)
 2. [План работ](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/Plan.md)
-3.    
+3. [Отчетные документы по итогам тестирования](https://github.com/AbdrashitovaYuliya/Diploma/blob/master/docs/Report.md)
+4. [Отчетные документы по итогам автоматизации]()
