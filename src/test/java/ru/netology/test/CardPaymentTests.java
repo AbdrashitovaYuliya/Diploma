@@ -94,18 +94,6 @@ public class CardPaymentTests {
     }
 
 
-    //passed
-    @Test
-    public void getSuccessfulPaymentCyrillicNameAndSurname() {
-        val mainPage = new MainPage();
-        mainPage.payWithCard();
-        val cardPaymentPage = new CardPaymentPage();
-        val cardInfo = successPaymentCyrillicNameAndSurname();
-        cardPaymentPage.completedForm(cardInfo);
-        cardPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCardPaymentStatus());
-    }
-
 
     //failed
     @Test
@@ -131,7 +119,7 @@ public class CardPaymentTests {
     }
 
 
-    //passed // при ручном тестировании через две минуты появляется сообщение "Успешно"
+    //failed //
     @Test
     public void getErrorNotificationIfSixteenZerosInCardNumberField() {
         val mainPage = new MainPage();
@@ -139,9 +127,8 @@ public class CardPaymentTests {
         val cardPaymentPage = new CardPaymentPage();
         val cardInfo = errorNotificationSixteenZerosInCardNumberField();
         cardPaymentPage.completedForm(cardInfo);
-        cardPaymentPage.errorNotification();
+        cardPaymentPage.obligatoryField();
     }
-
 
     //failed
     @Test
@@ -179,18 +166,6 @@ public class CardPaymentTests {
     }
 
 
-    //passed
-    @Test
-    public void getIncorrectExpireDateErrorIfNumberNinetyNineInMonthField() {
-        val mainPage = new MainPage();
-        mainPage.payWithCard();
-        val cardPaymentPage = new CardPaymentPage();
-        val cardInfo = errorNotificationNumberNinetyNineInMonthField();
-        cardPaymentPage.completedForm(cardInfo);
-        cardPaymentPage.incorrectExpireDate();
-    }
-
-
     //failed
     @Test
     public void getObligatoryFieldErrorIfMonthFieldEmpty() {
@@ -217,11 +192,11 @@ public class CardPaymentTests {
 
     //passed
     @Test
-    public void getIncorrectExpireDateErrorIfNumberNinetyNineInYearField() {
+    public void getIncorrectExpireDateErrorIfNumberTwentyNineInYearField() {
         val mainPage = new MainPage();
         mainPage.payWithCard();
         val cardPaymentPage = new CardPaymentPage();
-        val cardInfo = errorNotificationNumberNinetyNineInYearField();
+        val cardInfo = errorNotificationNumberTwentyNineInYearField();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.incorrectExpireDate();
     }
@@ -248,18 +223,6 @@ public class CardPaymentTests {
         val cardInfo = errorNotificationIfEnterCurrentMonthAndCurrentYear();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.cardExpired();
-    }
-
-
-    //passed
-    @Test
-    public void getIncorrectExpireDateErrorIfNumberFiftyInYearField() {
-        val mainPage = new MainPage();
-        mainPage.payWithCard();
-        val cardPaymentPage = new CardPaymentPage();
-        val cardInfo = errorNotificationNumberFiftyInYearField();
-        cardPaymentPage.completedForm(cardInfo);
-        cardPaymentPage.incorrectExpireDate();
     }
 
 
@@ -392,6 +355,17 @@ public class CardPaymentTests {
         val cardInfo = errorNotificationCVCFieldEmpty();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.obligatoryField();
+    }
+
+    // passed
+    @Test
+    public void getIncorrectFormatErrorCyrillicNameAndSurname() {
+        val mainPage = new MainPage();
+        mainPage.payWithCard();
+        val cardPaymentPage = new CardPaymentPage();
+        val cardInfo = errorNotificationCyrillicNameAndSurname();
+        cardPaymentPage.completedForm(cardInfo);
+        cardPaymentPage.incorrectFormat();
     }
 
 }

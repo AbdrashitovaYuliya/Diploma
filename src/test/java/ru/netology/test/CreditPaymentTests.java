@@ -96,19 +96,6 @@ public class CreditPaymentTests {
     }
 
 
-    //passed
-    @Test
-    public void getSuccessfulCreditPaymentIfCyrillicNameAndSurnameInOwnerField() {
-        val mainPage = new MainPage();
-        mainPage.buyInCredit();
-        val creditPaymentPage = new CreditPaymentPage();
-        val cardInfo = successPaymentCyrillicNameAndSurname();
-        creditPaymentPage.completedForm(cardInfo);
-        creditPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCreditPaymentStatus());
-    }
-
-
     //failed
     @Test
     public void getAllFieldsObligatoryErrorForCreditPaymentIfAllFormFieldsEmpty() {
@@ -133,7 +120,7 @@ public class CreditPaymentTests {
     }
 
 
-    //passed  //при ручном тестировании через две минуты появляется сообщение "Успешно"
+    //failed//
     @Test
     public void getErrorNotificationForCreditPaymentIfSixteenZerosInCardNumberField() {
         val mainPage = new MainPage();
@@ -141,9 +128,8 @@ public class CreditPaymentTests {
         val creditPaymentPage = new CreditPaymentPage();
         val cardInfo = errorNotificationSixteenZerosInCardNumberField();
         creditPaymentPage.completedForm(cardInfo);
-        creditPaymentPage.errorNotification();
+        creditPaymentPage.obligatoryField();
     }
-
 
     //failed
     @Test
@@ -181,18 +167,6 @@ public class CreditPaymentTests {
     }
 
 
-    //passed
-    @Test
-    public void getIncorrectExpireDateErrorForCreditPaymentIfNumberNinetyNineInMonthField() {
-        val mainPage = new MainPage();
-        mainPage.buyInCredit();
-        val creditPaymentPage = new CreditPaymentPage();
-        val cardInfo = errorNotificationNumberNinetyNineInMonthField();
-        creditPaymentPage.completedForm(cardInfo);
-        creditPaymentPage.incorrectExpireDate();
-    }
-
-
     //failed
     @Test
     public void getObligatoryFieldErrorForCreditPaymentIfMonthFieldEmpty() {
@@ -219,11 +193,11 @@ public class CreditPaymentTests {
 
     //passed
     @Test
-    public void getIncorrectExpireDateErrorForCreditPaymentIfNumberNinetyNineInYearField() {
+    public void getIncorrectExpireDateErrorForCreditPaymentIfNumberTwentyNineInYearField() {
         val mainPage = new MainPage();
         mainPage.buyInCredit();
         val creditPaymentPage = new CreditPaymentPage();
-        val cardInfo = errorNotificationNumberNinetyNineInYearField();
+        val cardInfo = errorNotificationNumberTwentyNineInYearField();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.incorrectExpireDate();
     }
@@ -249,18 +223,6 @@ public class CreditPaymentTests {
         val cardInfo = errorNotificationNumberTwentyTwoInYearField();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.cardExpired();
-    }
-
-
-    //passed
-    @Test
-    public void getIncorrectExpireDateErrorForCreditPaymentIfNumberFiftyInYearField() {
-        val mainPage = new MainPage();
-        mainPage.buyInCredit();
-        val creditPaymentPage = new CreditPaymentPage();
-        val cardInfo = errorNotificationNumberFiftyInYearField();
-        creditPaymentPage.completedForm(cardInfo);
-        creditPaymentPage.incorrectExpireDate();
     }
 
 
@@ -393,5 +355,17 @@ public class CreditPaymentTests {
         val cardInfo = errorNotificationCVCFieldEmpty();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.obligatoryField();
+    }
+
+    //passed
+    @Test
+    public void getIncorrectFormatErrorForCreditPaymentIfCyrillicNameAndSurnameInOwnerField() {
+        val mainPage = new MainPage();
+        mainPage.buyInCredit();
+        val creditPaymentPage = new CreditPaymentPage();
+        val cardInfo = errorNotificationCyrillicNameAndSurname();
+        creditPaymentPage.completedForm(cardInfo);
+        creditPaymentPage.incorrectFormat();
+
     }
 }

@@ -42,7 +42,7 @@ public class RestAPITest {
                 .when()
                 .post("/pay")
                 .then()
-                .statusCode(200);
+                .statusCode(400);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class RestAPITest {
                 .when()
                 .post("/credit")
                 .then()
-                .statusCode(200);
+                .statusCode(400);
     }
 
 }

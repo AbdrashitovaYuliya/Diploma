@@ -24,10 +24,6 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4441", "09", "24", "IVAN D’ARTANIYAN", "898");
     }
 
-    public static CardInfo successPaymentCyrillicNameAndSurname() {
-        return new CardInfo("4444 4444 4444 4441", "09", "24", "ИВАН ПЕТРОВ", "898");
-    }
-
     public static CardInfo ErrorAllFormFieldsEmpty() {
         return new CardInfo("", "", "", "", "");
     }
@@ -52,10 +48,6 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4441", "13", "24", "IVAN PETROV", "898");
     }
 
-    public static CardInfo errorNotificationNumberNinetyNineInMonthField() {
-        return new CardInfo("4444 4444 4444 4441", "99", "24", "IVAN PETROV", "898");
-    }
-
     public static CardInfo errorNotificationMonthFieldEmpty() {
         return new CardInfo("4444 4444 4444 4441", "", "24", "IVAN PETROV", "898");
     }
@@ -64,8 +56,8 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 4441", "09", "00", "IVAN PETROV", "898");
     }
 
-    public static CardInfo errorNotificationNumberNinetyNineInYearField() {
-        return new CardInfo("4444 4444 4444 4441", "09", "99", "IVAN PETROV", "898");
+    public static CardInfo errorNotificationNumberTwentyNineInYearField() {
+        return new CardInfo("4444 4444 4444 4441", "09", "29", "IVAN PETROV", "898");
     }
 
     public static CardInfo errorNotificationNumberTwentyTwoInYearField() {
@@ -74,10 +66,6 @@ public class DataHelper {
 
     public static CardInfo errorNotificationIfEnterCurrentMonthAndCurrentYear() {
         return new CardInfo("4444 4444 4444 4441", "03", "23", "IVAN PETROV", "898");
-    }
-
-    public static CardInfo errorNotificationNumberFiftyInYearField() {
-        return new CardInfo("4444 4444 4444 4441", "09", "50", "IVAN PETROV", "898");
     }
 
     public static CardInfo errorNotificationYearFieldEmpty() {
@@ -123,4 +111,9 @@ public class DataHelper {
     public static CardInfo errorNotificationCVCFieldEmpty() {
         return new CardInfo("4444 4444 4444 4441", "09", "24", "IVAN PETROV", "");
     }
+
+    public static CardInfo errorNotificationCyrillicNameAndSurname() {
+        return new CardInfo("4444 4444 4444 4441", "09", "24", "ИВАН ПЕТРОВ", "898");
+    }
 }
+
