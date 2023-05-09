@@ -11,19 +11,20 @@ import org.junit.jupiter.api.Test;
 import ru.netology.data.DBHelper;
 import ru.netology.page.CardPaymentPage;
 import ru.netology.page.MainPage;
+import ru.netology.util.CommonConsts;
+import ru.netology.util.PropertyUtils;
 
-
-import static com.codeborne.selenide.Selenide.open;;
+import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.data.DataHelper.*;
+import static ru.netology.util.CommonConsts.APPROVED;
+import static ru.netology.util.CommonConsts.DECLINED;
 
 
 public class CardPaymentTests {
-
-
     @BeforeEach
     void setUp() {
-        open(System.getProperty("sut.url"));
+        open(PropertyUtils.prop().getProperty("sut.url"));
     }
 
 
@@ -51,7 +52,7 @@ public class CardPaymentTests {
         val cardInfo = successPaymentWithApprovedCard();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCardPaymentStatus());
+        assertEquals(APPROVED, DBHelper.getCardPaymentStatus());
     }
 
 
@@ -64,7 +65,7 @@ public class CardPaymentTests {
         val cardInfo = errorNotificationWhilePayingWithDeclinedCard();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.errorNotification();
-        assertEquals("DECLINED", DBHelper.getCardPaymentStatus());
+        assertEquals(DECLINED, DBHelper.getCardPaymentStatus());
     }
 
 
@@ -77,7 +78,7 @@ public class CardPaymentTests {
         val cardInfo = successPaymentDoubleSurname();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCardPaymentStatus());
+        assertEquals(APPROVED, DBHelper.getCardPaymentStatus());
     }
 
 
@@ -90,9 +91,8 @@ public class CardPaymentTests {
         val cardInfo = successPaymentApostropheSurname();
         cardPaymentPage.completedForm(cardInfo);
         cardPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCardPaymentStatus());
+        assertEquals(APPROVED, DBHelper.getCardPaymentStatus());
     }
-
 
 
     //failed

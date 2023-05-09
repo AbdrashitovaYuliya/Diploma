@@ -10,20 +10,20 @@ import org.junit.jupiter.api.Test;
 import ru.netology.data.DBHelper;
 import ru.netology.page.CreditPaymentPage;
 import ru.netology.page.MainPage;
-
+import ru.netology.util.CommonConsts;
+import ru.netology.util.PropertyUtils;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.data.DataHelper.*;
-
+import static ru.netology.util.CommonConsts.APPROVED;
+import static ru.netology.util.CommonConsts.DECLINED;
 
 
 public class CreditPaymentTests {
-
-
     @BeforeEach
     void setUp() {
-        open(System.getProperty("sut.url"));
+        open(PropertyUtils.prop().getProperty("sut.url"));
     }
 
 
@@ -53,7 +53,7 @@ public class CreditPaymentTests {
         val cardInfo = successPaymentWithApprovedCard();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCreditPaymentStatus());
+        assertEquals(APPROVED, DBHelper.getCreditPaymentStatus());
     }
 
 
@@ -66,7 +66,7 @@ public class CreditPaymentTests {
         val cardInfo = errorNotificationWhilePayingWithDeclinedCard();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.errorNotification();
-        assertEquals("DECLINED", DBHelper.getCreditPaymentStatus());
+        assertEquals(DECLINED, DBHelper.getCreditPaymentStatus());
     }
 
 
@@ -79,7 +79,7 @@ public class CreditPaymentTests {
         val cardInfo = successPaymentDoubleSurname();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCreditPaymentStatus());
+        assertEquals(APPROVED, DBHelper.getCreditPaymentStatus());
     }
 
 
@@ -92,7 +92,7 @@ public class CreditPaymentTests {
         val cardInfo = successPaymentApostropheSurname();
         creditPaymentPage.completedForm(cardInfo);
         creditPaymentPage.successNotification();
-        assertEquals("APPROVED", DBHelper.getCreditPaymentStatus());
+        assertEquals(APPROVED, DBHelper.getCreditPaymentStatus());
     }
 
 

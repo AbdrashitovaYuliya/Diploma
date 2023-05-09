@@ -1,74 +1,45 @@
 package ru.netology.test;
 
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
-import io.restassured.http.ContentType;
-import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
+import ru.netology.data.DBHelper;
 import ru.netology.data.DataHelper;
+import ru.netology.util.CommonConsts;
 
-import static io.restassured.RestAssured.given;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.netology.data.DataHelper.errorNotificationWhilePayingWithDeclinedCard;
+import static ru.netology.data.RestHelper.postRequest;
+import static ru.netology.util.CommonConsts.APPROVED;
+import static ru.netology.util.CommonConsts.DECLINED;
 
 
 public class RestAPITest {
-
-    private RequestSpecification requestSpec = new RequestSpecBuilder()
-            .setBaseUri("http://localhost")
-            .setPort(8080)
-            .setAccept(ContentType.JSON)
-            .setContentType(ContentType.JSON)
-            .log(LogDetail.ALL)
-            .build();
-
+    private static final String PAY_PATH = "/pay";
+    private static final String CREDIT_PATH = "/credit";
 
     @Test
     public void getSuccessResponseIfPayWithApprovedStatusCard() {
-        given()
-                .spec(requestSpec)
-                .baseUri("http://localhost:8080/api/v1")
-                .body(DataHelper.successPaymentWithApprovedCard())
-                .when()
-                .post("/pay")
-                .then()
-                .statusCode(200);
+        postRequest(DataHelper.successPaymentWithApprovedCard(), PAY_PATH).statusCode(200);
+        assertEquals(APPROVED, DBHelper.getCreditPaymentStatus());
     }
 
     @Test
     public void getErrorResponseIfPayWithDeclinedStatusCard() {
-        given()
-                .spec(requestSpec)
-                .baseUri("http://localhost:8080/api/v1")
-                .body(DataHelper.errorNotificationWhilePayingWithDeclinedCard())
-                .when()
-                .post("/pay")
-                .then()
-                .statusCode(400);
+        postRequest(errorNotificationWhilePayingWithDeclinedCard(), PAY_PATH).statusCode(400);
+        assertEquals(DECLINED, DBHelper.getCreditPaymentStatus());
     }
 
     @Test
-
     public void getSuccessResponseIfPayWithApprovedStatusCreditCard() {
-        given()
-                .spec(requestSpec)
-                .baseUri("http://localhost:8080/api/v1")
-                .body(DataHelper.successPaymentWithApprovedCard())
-                .when()
-                .post("/credit")
-                .then()
-                .statusCode(200);
+        postRequest(DataHelper.successPaymentWithApprovedCard(), CREDIT_PATH).statusCode(200);
+        assertEquals(APPROVED, DBHelper.getCreditPaymentStatus());
+
     }
 
     @Test
 
     public void getErrorResponseIfPayWithDeclinedStatusCreditCard() {
-        given()
-                .spec(requestSpec)
-                .baseUri("http://localhost:8080/api/v1")
-                .body(DataHelper.errorNotificationWhilePayingWithDeclinedCard())
-                .when()
-                .post("/credit")
-                .then()
-                .statusCode(400);
+        postRequest(errorNotificationWhilePayingWithDeclinedCard(), CREDIT_PATH).statusCode(400);
+        assertEquals(DECLINED, DBHelper.getCreditPaymentStatus());
     }
 
 }

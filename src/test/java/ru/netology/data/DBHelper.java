@@ -6,6 +6,7 @@ import lombok.experimental.UtilityClass;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import ru.netology.util.PropertyUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,18 +19,8 @@ import java.util.Properties;
 public class DBHelper {
 
     private static final QueryRunner runner = new QueryRunner();
-    private static Properties prop = prop();
+    private static final Properties prop = PropertyUtils.prop();
     private static final Connection conn = getConnection();
-
-    public static Properties prop() {
-        Properties properties = new Properties();
-        try (InputStream is = DBHelper.class.getClassLoader().getResourceAsStream("application.properties")) {
-            properties.load(is);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return properties;
-    }
 
     @SneakyThrows
     public static Connection getConnection() {
@@ -47,11 +38,7 @@ public class DBHelper {
         var cleanOrderEntity = "DELETE FROM order_entity;";
 
         try (
-                var conn = DriverManager.getConnection(
-                        prop.getProperty("spring.datasource.url"),
-                        prop.getProperty("spring.datasource.username"),
-                        prop.getProperty("spring.datasource.password")
-                );
+                var conn = getConnection();
                 var deleteStmt = conn.createStatement();
         ) {
 
